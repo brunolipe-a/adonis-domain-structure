@@ -1,3 +1,4 @@
+import { migrationPaths } from '#utils/database'
 import app from '@adonisjs/core/services/app'
 import { defineConfig } from '@adonisjs/lucid'
 
@@ -12,7 +13,7 @@ const dbConfig = defineConfig({
       useNullAsDefault: true,
       migrations: {
         naturalSort: true,
-        paths: ['database/migrations'],
+        paths: migrationPaths(),
       },
     },
   },

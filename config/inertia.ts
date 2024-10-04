@@ -12,6 +12,9 @@ const inertiaConfig = defineConfig({
    */
   sharedData: {
     errors: (ctx) => ctx.session?.flashMessages.get('errors'),
+    user: (ctx) => ctx.auth?.user,
+    path: (ctx) => ctx.request.url(true),
+    flashMessages: (ctx) => ctx.session?.flashMessages.all(),
   },
 
   /**
@@ -19,7 +22,7 @@ const inertiaConfig = defineConfig({
    */
   ssr: {
     enabled: true,
-    entrypoint: 'inertia/app/ssr.tsx',
+    entrypoint: 'app/core/ui/app/ssr.tsx',
   },
 })
 
